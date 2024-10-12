@@ -312,6 +312,8 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: ZulipAppBar(title: const Text("Home")),
+      body: Center(
+        child: SingleChildScrollView(
       body: ElevatedButtonTheme(
         data: ElevatedButtonThemeData(style: ButtonStyle(
           backgroundColor: WidgetStatePropertyAll(colorScheme.secondaryContainer),
@@ -338,6 +340,12 @@ class HomePage extends StatelessWidget {
                 MessageListPage.buildRoute(context: context,
                   narrow: const CombinedFeedNarrow())),
               child: Text(zulipLocalizations.combinedFeedPageTitle)),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () => Navigator.push(context,
+                MessageListPage.buildRoute(context: context,
+                  narrow: const MentionsNarrow())),
+              child: Text(zulipLocalizations.mentionsPageTitle)),
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () => Navigator.push(context,
